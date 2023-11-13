@@ -19,6 +19,7 @@ spec:
       {{- end }}
       labels:
         {{- include "stubr.selectorLabels" . | nindent 8 }}
+        {{- .Values.podLabels | toYaml | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
@@ -51,6 +52,8 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
             timeoutSeconds: {{ .Values.readiness.timeoutSeconds }}
             initialDelaySeconds: {{ .Values.readiness.initialDelaySeconds }}
+      tolerations:
+      {{ .Values.podTolerations | toYaml | nindent 8 }}
       volumes:
         - name: {{ include "stubr.fullname" . }}
           configMap:

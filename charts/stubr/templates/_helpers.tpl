@@ -36,6 +36,7 @@ Common labels
 {{- define "stubr.labels" -}}
 helm.sh/chart: {{ include "stubr.chart" . }}
 {{ include "stubr.selectorLabels" . }}
+{{ .Values.extraLabels | toYaml }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}

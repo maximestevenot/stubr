@@ -10,7 +10,10 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-podAnnotations: { }
+extraLabels: {}
+podLabels: {}
+podAnnotations: {}
+podTolerations: []
 
 service:
   type: ClusterIP
