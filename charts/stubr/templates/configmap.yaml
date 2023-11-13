@@ -3,4 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ include "stubr.fullname" . }}
 data:
-  {{- include "stubr.stubs" . | nindent 2 }}
+  {{- range $filename, $content := .Values.stubs }}
+  {{ $filename }}: |
+    {{ $content | toJson | nindent 4 }}
+  {{- end }}

@@ -1,6 +1,6 @@
 replicaCount: 1
 
-stubs: "stubs/**"
+stubs: {}
 
 image:
   repository: ghcr.io/beltram/stubr
